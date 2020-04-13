@@ -1,0 +1,12 @@
+UseEffect can do thing hat ComponentDidMount and ComponentDidUpdate does
+
+useEffect(() => {
+    effect
+    return () => {
+        cleanup
+    }
+}, [input])
+
+
+input = uske change hone pe Vapas Rerender Karwana hai ddd
+
