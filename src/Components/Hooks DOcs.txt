@@ -8,5 +8,44 @@ useEffect(() => {
 }, [input])
 
 
-input = uske change hone pe Vapas Rerender Karwana hai ddd
+input = uske change hone pe Vapas Rerender Karwana hai
+input not changed useEffect not called simple
+
+Gotchas around UseEffect 
+1st = No array  inputuseEffect(() => {
+    effect
+    return () => {
+        cleanup
+    }
+})
+
+===>>>>> Gets Always called
+
+2nd = empyu array
+useEffect(() => {
+    effect
+    return () => {
+        cleanup
+    }
+}, [])
+
+===>>>>> Gets called 1 time , Very first Time Component Gets Rendered
+
+3rd = Same Value in array
+===>>>>> Desent Get called
+
+
+
+4th = Called with [{color : 'red}] next value [{color : 'red}]
+
+Gets Called Object are different References
+
+
+Note >>>>> Asynchronous Reqquest Not Allowed in useEffect make another Function call that function in UseEffect
+
+
+
+
+
+
 

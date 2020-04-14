@@ -1,17 +1,13 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
+import useResourses from "./useResourseFunction";
 
 export default function ResourseList({ Resourse }) {
-	const [resourses, setResourse] = useState([]);
-	useEffect(() => {
-		fetchResourse(Resourse);
-	}, [Resourse]);
-	const fetchResourse = (Resourse) => {
-		axios
-			.get(`https://jsonplaceholder.typicode.com/${Resourse}`)
-			.then((res) => {
-				setResourse(res.data);
-			});
-	};
-	return <div>{resourses.length}</div>;
+	const Res = useResourses(Resourse);
+	return (
+		<ul>
+			{Res.map((d) => {
+				return <li key={d.id}>{d.title}</li>;
+			})}
+		</ul>
+	);
 }
